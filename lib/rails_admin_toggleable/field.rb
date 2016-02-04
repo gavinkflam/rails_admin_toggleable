@@ -51,8 +51,7 @@ module RailsAdmin
             end
 
             case value
-              when nil
-              when false
+              when nil, false
                 g_link('✘', 1, 'label-danger')
               when true
                 g_link('✓', 0, 'label-success')
