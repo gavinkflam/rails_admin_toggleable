@@ -24,7 +24,10 @@ module RailsAdmin
             ajax_link = Proc.new do |fv, on, badge|
               render json: {
                 text: fv.html_safe,
-                href: toggle_path(model_name: @abstract_model, id: @object.id, method: @meth, on: on.to_s),
+                href: toggle_path(
+                    model_name: @abstract_model, id: @object.id, method: @meth, on: on.to_s,
+                    locale: I18n.locale.empty? ? nil : I18n.locale
+                ),
                 class: 'label ' + badge,
               }
             end
